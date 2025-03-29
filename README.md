@@ -3,6 +3,38 @@
 * https://mvnrepository.com/artifact/com.ibm.icu/icu4j
 * пример использования с интеграцией Spring Boot messages и кэшированием и подключением icu4j к дефолтному резолверу messages в Spring (`HierarchicalMessageSource`) https://github.com/yakworks/spring-icu4j
 
+# пример кастомизации для чисел
+```java
+import com.ibm.icu.text.RuleBasedNumberFormat;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.PostConstruct;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.Locale;
+
+@Service
+public class RuleBasedNumberService {
+
+    private RuleBasedNumberFormat uzbekFormatter;
+
+    @PostConstruct
+    public void loadRules() throws IOException {
+        // Load the rule file using Spring's Resource class
+        Resource resource = new ClassPathResource("uzbek_rules.txt");
+        String rules = Files.readString(resource.getFile().toPath());
+        uzbekFormatter = new RuleBasedNumberFormat(rules, Locale.forLanguageTag("uz"));
+    }
+
+    public String formatUzbekNumber(double number) {
+        return uzbekFormatter.format(number);
+    }
+}
+
+```
+
 # пример для денег
 
 ```java
