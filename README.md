@@ -1,6 +1,7 @@
 # icu4j
 * https://unicode-org.github.io/icu/userguide/icu4j/
 * https://mvnrepository.com/artifact/com.ibm.icu/icu4j
+* пример использования с интеграцией Spring Boot messages и кэшированием https://github.com/yakworks/spring-icu4j
 
 # пример для денег
 
