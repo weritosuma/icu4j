@@ -1,4 +1,6 @@
 # icu4j
+* https://unicode-org.github.io/icu/userguide/icu4j/
+* https://mvnrepository.com/artifact/com.ibm.icu/icu4j
 
 # Список типов правил
 
