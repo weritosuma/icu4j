@@ -2,6 +2,35 @@
 * https://unicode-org.github.io/icu/userguide/icu4j/
 * https://mvnrepository.com/artifact/com.ibm.icu/icu4j
 
+# пример для денег
+
+```java
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.util.Currency;
+import com.ibm.icu.util.ULocale;
+
+public class CurrencyExample {
+    public static void main(String[] args) {
+        // Define the locale for Uzbek
+        ULocale uzbekLocale = new ULocale("uz");
+
+        // Get currency formatter for the locale
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(uzbekLocale);
+
+        // Set the currency to Uzbekistani Som (UZS)
+        Currency currency = Currency.getInstance("UZS");
+        currencyFormat.setCurrency(currency);
+
+        // Format a monetary amount
+        double amount = 12345.67;
+        String formattedMoney = currencyFormat.format(amount);
+
+        System.out.println("Formatted currency: " + formattedMoney); // Output: 12 345,67 UZS
+    }
+}
+
+```
+
 # Список типов правил
 
 Here's the full list of ICU4J rule types, now updated with a concise code example for each:
