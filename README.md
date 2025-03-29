@@ -257,4 +257,65 @@ System.out.println(arabicNum.format(123)); // Output: "١٢٣"
 
 ---
 
-This expanded list now includes a short Java example for each type of ICU4J rule, demonstrating how to apply the feature in a program. Let me know which you'd like to explore further!
+The `RuleBasedNumberFormat` class in ICU4J provides several predefined formatting types for numbers. Here’s a list of these formats, along with descriptions and short code examples:
+
+---
+
+### 1. **SPELLOUT**
+- **Description**: Converts numbers to their word-based representation (e.g., "123" becomes "one hundred twenty-three").
+- **Usage**: Commonly used for writing numbers in text format.
+- **Example**:
+```java
+import com.ibm.icu.text.RuleBasedNumberFormat;
+
+RuleBasedNumberFormat formatter = new RuleBasedNumberFormat(RuleBasedNumberFormat.SPELLOUT);
+System.out.println(formatter.format(123)); // Output: "one hundred twenty-three"
+```
+
+---
+
+### 2. **ORDINAL**
+- **Description**: Converts numbers to ordinal representation (e.g., "1" becomes "first", "2" becomes "second").
+- **Usage**: Used in contexts requiring ordinal numbers (e.g., rankings or sequential data).
+- **Example**:
+```java
+import com.ibm.icu.text.RuleBasedNumberFormat;
+
+RuleBasedNumberFormat formatter = new RuleBasedNumberFormat(RuleBasedNumberFormat.ORDINAL);
+System.out.println(formatter.format(3)); // Output: "third"
+```
+
+---
+
+### 3. **DURATION**
+- **Description**: Formats numbers into duration representations (e.g., "3600" becomes "1 hour").
+- **Usage**: Useful for formatting durations like time intervals.
+- **Example**:
+```java
+import com.ibm.icu.text.RuleBasedNumberFormat;
+
+RuleBasedNumberFormat formatter = new RuleBasedNumberFormat(RuleBasedNumberFormat.DURATION);
+System.out.println(formatter.format(3600)); // Output: "1 hour"
+```
+
+---
+
+### 4. **Default Numeric Formatting**
+- **Description**: Provides standard numeric formatting according to locale conventions (e.g., "12345" becomes "12,345" in English locale).
+- **Usage**: This is the default mode when no specific format is set.
+- **Example**:
+```java
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.util.ULocale;
+
+NumberFormat formatter = NumberFormat.getInstance(ULocale.ENGLISH);
+System.out.println(formatter.format(12345)); // Output: "12,345"
+```
+
+---
+
+### Key Notes
+- The **SPELLOUT** and **ORDINAL** formats are widely used for creating custom `RuleBasedNumberFormat` rules.
+- You can also define your own rules in a text file and pass them to the constructor for advanced customization, as shown in earlier examples.
+
+Let me know if you want to explore these formats in more depth or create custom rules!
