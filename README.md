@@ -3,6 +3,8 @@
 * https://mvnrepository.com/artifact/com.ibm.icu/icu4j
 * пример использования с интеграцией Spring Boot messages и кэшированием и подключением icu4j к дефолтному резолверу messages в Spring (`HierarchicalMessageSource`) https://github.com/yakworks/spring-icu4j
 
+**Note.** В icu4j не для всех языков есть правила, нужно добавлять кастомные.
+
 # пример кастомизации для чисел
 ```java
 import com.ibm.icu.text.RuleBasedNumberFormat;
